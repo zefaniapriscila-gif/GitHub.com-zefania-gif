@@ -68,35 +68,63 @@
       </div>
       <div class="ground" aria-hidden="true"><div class="ground-grid"></div></div>
 
-      <div class="hero-elephant" aria-hidden="true">
+      <div class="hero-scene" aria-hidden="true">
         <svg viewBox="0 0 900 520" role="presentation" focusable="false">
           <defs>
-            <filter id="elephant-pencil" x="-8%" y="-8%" width="116%" height="116%">
-              <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="8" />
-              <feDisplacementMap in="SourceGraphic" scale="2.4" />
+            <filter id="storybook-pencil" x="-8%" y="-8%" width="116%" height="116%">
+              <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="2" seed="11" />
+              <feDisplacementMap in="SourceGraphic" scale="1.8" />
             </filter>
-            <pattern id="elephant-crayon" width="19" height="19" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
-              <path d="M2 1v17M10 0v11M16 5v14" stroke="#e2f1ff" stroke-opacity=".19" stroke-width="2" />
+            <pattern id="storybook-crayon" width="17" height="17" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+              <path d="M2 1v15M9 0v10M14 5v12" stroke="#e5f0f5" stroke-opacity=".2" stroke-width="2" />
             </pattern>
           </defs>
-          <g filter="url(#elephant-pencil)" stroke="#4b80c4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M251 345C139 388 46 368 26 287 5 203 71 130 168 142c46 6 83 32 109 75Z" fill="#75a9e2" stroke-width="5" />
-            <path d="M648 342c111 48 205 22 224-61 18-83-48-154-146-141-47 6-83 31-109 75Z" fill="#75a9e2" stroke-width="5" />
-            <path d="M249 345c-34-48-28-134 4-174 39-50 105-78 201-78 104 0 175 32 210 86 26 39 34 114 2 166-36 58-116 75-211 75-100 0-173-15-206-75Z" fill="#82b5e8" stroke-width="5" />
-            <path d="M249 345c-34-48-28-134 4-174 39-50 105-78 201-78 104 0 175 32 210 86 26 39 34 114 2 166-36 58-116 75-211 75-100 0-173-15-206-75Z" fill="url(#elephant-crayon)" stroke="none" />
-            <path d="M312 286c-3 50 6 82 28 83 22 2 36-13 41-36M579 286c3 50-6 82-28 83-22 2-36-13-41-36" fill="#86b9e9" stroke-width="4" />
-            <path d="M438 245c-8 79 5 143 49 190 23 24 55 28 77 17 18-9 19-24 4-34l-20-13c-11-8-5-19 8-22 12-4 16-16 8-26-8-10-24-9-34 0-19 16-43 8-55-15-14-27-16-59-11-96" fill="#78a9df" stroke-width="5" />
-            <path d="M438 245c-8 79 5 143 49 190 23 24 55 28 77 17 18-9 19-24 4-34l-20-13c-11-8-5-19 8-22 12-4 16-16 8-26-8-10-24-9-34 0-19 16-43 8-55-15-14-27-16-59-11-96" fill="url(#elephant-crayon)" stroke="none" />
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M65 443c177-15 359 14 535 0 99-8 170-7 237 1" stroke="#d7cbb4" stroke-width="4" />
+            <path d="M101 464c52 8 91 7 126 1m345 0c55 8 91 5 132-2" stroke="#d7cbb4" stroke-width="2" opacity=".7" />
+            <path d="M122 206c8-17 18-20 28-12m-30 28c7-9 16-12 26-10m520-174c9-14 18-14 27-3m-19 24c11-10 20-10 28-2" stroke="#d69a52" stroke-width="5" />
+            <path d="M544 117c7-9 15-9 21 0m-5-14c6-5 12-4 17 2m142 96c8-10 17-9 22 0m-3-15c6-5 12-5 17 1" stroke="#8fae8c" stroke-width="5" />
           </g>
-          <path d="M0 367h900" fill="none" stroke="#e5dccb" stroke-width="4" />
-          <path d="M160 300c-31 2-47 20-49 39-2 17 15 30 42 29 26-1 48-15 47-34-1-22-17-36-40-34ZM740 300c31 2 47 20 49 39 2 17-15 30-42 29-26-1-48-15-47-34 1-22 17-36 40-34Z" fill="#8ab9e6" stroke="#4b80c4" stroke-width="3" />
-          <path d="M142 359v9m16-8v9m16-11v9m568 1v9m16-8v9m16-11v9" stroke="#36485b" stroke-width="4" stroke-linecap="round" />
-          <circle cx="316" cy="227" r="21" fill="#fffaf0" />
-          <circle cx="584" cy="220" r="21" fill="#fffaf0" />
-          <circle cx="321" cy="228" r="9" fill="#263342" />
-          <circle cx="580" cy="221" r="9" fill="#263342" />
-          <path d="M426 267c20-8 41-10 61-8m-56 20 42-2m-39 16 37 4m-31 13 33 9m-25 11 33 13" fill="none" stroke="#4d79af" stroke-width="3" stroke-linecap="round" opacity=".8" />
-          <path d="M394 89c-6-24-3-42 6-57m18 49c3-26 13-46 28-62m8 63c11-20 23-34 40-44m-15 54c13-10 25-15 38-18" fill="none" stroke="#303239" stroke-width="3" stroke-linecap="round" />
+          <g filter="url(#storybook-pencil)" stroke="#244e78" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M168 378h296v57H168c-17 0-28-12-28-28s11-29 28-29Z" fill="#193d59" stroke-width="5" />
+            <path d="M167 403h299" stroke="#82b5c5" stroke-width="4" />
+            <path d="M197 362c-7-75 18-127 71-137 59-11 96 28 96 137Z" fill="#4f91bd" stroke-width="6" />
+            <path d="M217 353c1-57 19-92 48-98 36-8 56 19 56 98Z" fill="#e5e9db" stroke-width="4" />
+            <path d="M235 278c27-8 51-8 74 0" stroke="#a4cbd3" stroke-width="4" />
+            <path d="M189 358h189v18H189Z" fill="#82b5c5" stroke-width="4" />
+            <path d="M176 376h36v11h-36zm28 15h49v12h-49z" fill="#f1b445" stroke="#bf812f" stroke-width="3" />
+            <path d="M392 362c20-19 45-22 68-12l23 20-4 16h-87Z" fill="#e2e5d9" stroke-width="5" />
+            <path d="M399 358c8-27 22-44 38-56l20 8-19 54Z" fill="#4f91bd" stroke-width="5" />
+            <path d="M453 312 513 224l39 15-48 101" fill="#e8b43f" stroke-width="8" />
+            <path d="m540 236 47 27-38 65-29-12Z" fill="#f0c34d" stroke-width="7" />
+            <path d="M543 322c23 2 42 12 53 28l-4 20c-19 1-38-8-53-23Z" fill="#4f91bd" stroke-width="6" />
+            <circle cx="453" cy="311" r="15" fill="#234e72" stroke-width="5" />
+            <circle cx="541" cy="239" r="13" fill="#234e72" stroke-width="5" />
+            <path d="M160 431h186l-17 27H178c-14 0-24-9-24-17Z" fill="#2d537a" stroke-width="5" />
+            <circle cx="205" cy="439" r="29" fill="#627b82" stroke-width="5" />
+            <circle cx="205" cy="439" r="12" fill="#243b49" stroke-width="4" />
+            <circle cx="302" cy="439" r="29" fill="#627b82" stroke-width="5" />
+            <circle cx="302" cy="439" r="12" fill="#243b49" stroke-width="4" />
+            <path d="M190 434h30m-15-15v40m82-25h30m-15-15v40" stroke="#a7b7ae" stroke-width="3" />
+            <path d="M234 323c8-11 18-11 26 0m-13-7v14m-36 31 11-13m66 12 10-13" stroke="#203a50" stroke-width="4" />
+          </g>
+          <path class="hero-flame" d="M615 351c13-22 22-37 35-49 8 19 9 39 3 60-11-4-24-7-38-11Z" fill="#f4d84b" />
+          <path class="hero-flame-core" d="M630 351c8-15 14-26 21-34 5 13 5 26 2 40-8-3-15-5-23-6Z" fill="#ed8d49" />
+          <g class="hero-rocket" transform="rotate(7 692 187)" filter="url(#storybook-pencil)" stroke="#315b83" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M651 244 630 284l41-12m42-7 28 38-42-10" fill="#edc747" stroke-width="5" />
+            <path d="M650 116c4-35 22-64 42-87 22 24 39 53 43 87l-5 133c-1 33-19 57-39 57s-38-24-39-57Z" fill="#448cb9" stroke-width="6" />
+            <path d="M650 116c4-35 22-64 42-87 22 24 39 53 43 87-28 11-57 11-85 0Z" fill="#ed4d4c" stroke="#c54148" stroke-width="6" />
+            <path d="M655 122c26 8 51 8 76 0m-75 122c28 10 49 10 73 0" fill="none" stroke="#a5ccd0" stroke-width="4" />
+            <circle cx="692" cy="175" r="19" fill="#d1e0ce" stroke="#315b83" stroke-width="5" />
+            <circle cx="692" cy="175" r="9" fill="#8bb4c1" stroke="none" />
+            <path d="M670 286c7 11 13 17 22 17 8 0 15-6 21-17" fill="none" stroke="#ed8d49" stroke-width="10" />
+          </g>
+          <g fill="#f0b445">
+            <path d="m596 94 5 13 14 1-11 8 4 14-12-8-11 8 4-14-11-8 14-1Z" />
+            <path d="m776 165 4 10 11 1-9 6 3 11-9-7-9 7 3-11-9-6 11-1Z" />
+            <circle cx="603" cy="190" r="3" />
+            <circle cx="776" cy="81" r="4" />
+          </g>
         </svg>
       </div>
 

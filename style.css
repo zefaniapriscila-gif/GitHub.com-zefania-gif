@@ -3839,20 +3839,20 @@ html.is-locked main {
   }
 }
 
-/* A paper-and-crayon illustration brings a softer, storybook feel to the hero. */
+/* A little rocket and digger turn the hero into a paper-and-crayon workshop. */
 .hero {
   --horizon: 64%;
-  background-color: #f5f0e4;
+  background-color: #f8f3e8;
   background-image:
-    radial-gradient(ellipse at 50% 62%, rgba(255, 255, 255, 0.28), transparent 58%),
-    repeating-linear-gradient(0deg, rgba(120, 102, 74, 0.018) 0 1px, transparent 1px 4px);
+    radial-gradient(ellipse at 48% 62%, rgba(255, 255, 255, 0.42), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(120, 102, 74, 0.018) 0 1px, transparent 1px 5px);
 }
 
 [data-theme="night"] .hero {
-  background-color: #152035;
+  background-color: #1b2634;
   background-image:
-    radial-gradient(ellipse at 50% 62%, rgba(93, 130, 180, 0.12), transparent 58%),
-    repeating-linear-gradient(0deg, rgba(196, 207, 224, 0.018) 0 1px, transparent 1px 4px);
+    radial-gradient(ellipse at 48% 62%, rgba(93, 130, 180, 0.16), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(196, 207, 224, 0.018) 0 1px, transparent 1px 5px);
 }
 
 .hero .sky {
@@ -3870,24 +3870,65 @@ html.is-locked main {
 }
 
 .hero .ground-grid {
-  opacity: 0.18;
+  opacity: 0.08;
 }
 
-.hero-elephant {
+.hero-scene {
   position: absolute;
   z-index: 2;
-  top: clamp(205px, 28vh, 320px);
+  top: clamp(190px, 22vh, 270px);
   left: 50%;
-  width: min(760px, 54vw);
+  width: min(700px, 56vw);
   transform: translateX(-50%);
   pointer-events: none;
-  filter: drop-shadow(0 14px 12px rgba(45, 69, 99, 0.12));
+  filter: drop-shadow(0 18px 15px rgba(45, 69, 99, 0.1));
 }
 
-.hero-elephant svg {
+.hero-scene svg {
   width: 100%;
   height: auto;
   overflow: visible;
+}
+
+.hero-rocket {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rocket-ready 4.5s ease-in-out infinite;
+}
+
+.hero-flame {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: flame-flicker 0.5s ease-in-out infinite alternate;
+}
+
+.hero-flame-core {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: flame-flicker 0.38s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes rocket-ready {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -7px;
+    rotate: -1deg;
+  }
+}
+
+@keyframes flame-flicker {
+  from {
+    scale: 0.9 0.9;
+    opacity: 0.8;
+  }
+  to {
+    scale: 1.08 1.12;
+    opacity: 1;
+  }
 }
 
 .monument {
@@ -3910,9 +3951,9 @@ html.is-locked main {
     --horizon: 58%;
   }
 
-  .hero-elephant {
-    top: clamp(300px, 36vh, 330px);
-    width: min(520px, 86vw);
+  .hero-scene {
+    top: clamp(285px, 34vh, 310px);
+    width: min(520px, 92vw);
   }
 
   .monument {
