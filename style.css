@@ -3890,6 +3890,24 @@ html.is-locked main {
   overflow: visible;
 }
 
+.hero-bee {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bee-drift 3.8s ease-in-out infinite;
+}
+
+@keyframes bee-drift {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: -2deg;
+  }
+  50% {
+    translate: -5px -8px;
+    rotate: 2deg;
+  }
+}
+
 .hero-rocket {
   transform-box: fill-box;
   transform-origin: center;
@@ -3933,7 +3951,7 @@ html.is-locked main {
 
 .monument {
   top: clamp(112px, 15vh, 164px) !important;
-  z-index: 3;
+  z-index: 6;
 }
 
 .monument-shadow {
@@ -3958,5 +3976,11 @@ html.is-locked main {
 
   .monument {
     top: clamp(128px, 17vh, 152px) !important;
+  }
+}
+
+@media (min-width: 621px) and (max-width: 899px) {
+  .hero-launch {
+    translate: 0 98px;
   }
 }
