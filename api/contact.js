@@ -3,7 +3,7 @@
  *
  * Environment variables (set them in the Vercel project settings):
  *   RESEND_API_KEY  required. An API key from resend.com.
- *   CONTACT_TO      optional. Where notes go. Defaults to mraihansurya@gmail.com.
+ *   CONTACT_TO      optional. Where notes go. Defaults to znpchilla19@gmail.com.
  *   CONTACT_FROM    optional. The sender. Defaults to Resend's shared test sender, which only
  *                   delivers to the address the Resend account was made with. Use an address on
  *                   a domain verified in Resend to send anywhere else.
@@ -12,7 +12,7 @@
  * url-encoded fields and gets a short HTML page back.
  */
 
-const TO = process.env.CONTACT_TO || "mraihansurya@gmail.com";
+const TO = process.env.CONTACT_TO || "znpchilla19@gmail.com";
 const FROM = process.env.CONTACT_FROM || "Portfolio <onboarding@resend.dev>";
 const TOPICS = [
   "a web app",
