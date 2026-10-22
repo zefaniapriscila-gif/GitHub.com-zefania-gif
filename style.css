@@ -571,8 +571,8 @@ ol {
 /* The name. app.js sizes it, measures its baseline and stands it on the ground. */
 .monument {
   position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
+  left: 0;
+  right: 0;
   top: var(--word-top, 40%);
   z-index: 2;
   opacity: 0;
@@ -587,11 +587,11 @@ ol {
 .monument-word,
 .cast {
   font-family: var(--sans);
-  font-size: var(--word-size, 20vw);
+  font-size: var(--word-size, 10vw);
   font-weight: 860;
   font-stretch: 66%;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.008em;
   text-align: center;
   white-space: nowrap;
 }
@@ -600,6 +600,7 @@ ol {
   position: relative;
   color: var(--word-ink, #141c38);
   text-shadow: var(--rim-x, 0px) var(--rim-y, 0px) 0 var(--rim, transparent);
+  filter: drop-shadow(0 10px 24px color-mix(in srgb, var(--word-ink, #141c38) 18%, transparent));
 }
 
 .baseline-probe {
@@ -909,6 +910,236 @@ ol {
   font-size: clamp(17px, 1.4vw, 20px);
   line-height: 1.45;
   color: var(--ink-2);
+}
+
+.work-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 24px);
+  margin-top: clamp(64px, 8vw, 112px);
+}
+
+.work-project {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 310px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 38px;
+  overflow: hidden;
+  padding: clamp(24px, 3.5vw, 42px);
+  border: 1px solid color-mix(in srgb, var(--project-accent) 28%, var(--line));
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--project-accent) 12%, var(--bg)), var(--bg) 78%);
+  box-shadow: 0 20px 52px -38px color-mix(in srgb, var(--project-accent) 42%, transparent);
+  transition: transform 220ms var(--ease-out), border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.work-project::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: radial-gradient(circle at 88% 22%, color-mix(in srgb, var(--project-accent) 20%, transparent), transparent 42%);
+  content: "";
+  pointer-events: none;
+}
+
+.work-project:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--project-accent) 58%, var(--line));
+  box-shadow: 0 28px 60px -38px color-mix(in srgb, var(--project-accent) 55%, transparent);
+}
+
+.work-project-top,
+.work-project-copy,
+.work-project-link {
+  position: relative;
+  z-index: 1;
+}
+
+.work-project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.work-project-index,
+.work-project-kicker {
+  color: var(--ink-2);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.work-project-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-variant-numeric: tabular-nums;
+}
+
+.work-project-index i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--project-accent);
+}
+
+.work-project-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--project-accent) 45%, var(--line));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--project-accent) 12%, var(--bg));
+  color: var(--project-accent);
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+}
+
+.work-project-kicker {
+  margin: 0 0 12px;
+  color: var(--project-accent);
+}
+
+.work-project-name {
+  margin: 0;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 780;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  text-shadow: calc(var(--lx) * 3px) calc(var(--ly) * 3px) calc(2px + var(--llen) * 2px) var(--cast-text);
+}
+
+.work-project-description {
+  max-width: 42ch;
+  margin: 16px 0 0;
+  color: var(--ink-2);
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.work-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-top: 24px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.work-project-link span {
+  color: var(--project-accent);
+  transition: transform 180ms ease;
+}
+
+.work-project-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+.work-project-link:focus-visible {
+  border-radius: 5px;
+  outline: 2px solid var(--project-accent);
+  outline-offset: 5px;
+}
+
+.work-project-featured {
+  display: grid;
+  min-height: 360px;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+  grid-template-rows: auto 1fr;
+  align-items: center;
+}
+
+.work-project-featured .work-project-top {
+  grid-column: 1 / -1;
+}
+
+.work-project-featured .work-project-copy {
+  align-self: center;
+  max-width: 620px;
+}
+
+.work-project-featured .work-project-name {
+  font-size: clamp(48px, 7vw, 88px);
+}
+
+.work-project-orbit {
+  position: absolute;
+  z-index: 0;
+  top: 52%;
+  right: clamp(24px, 6vw, 88px);
+  width: clamp(150px, 21vw, 250px);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--project-accent) 40%, transparent);
+  border-radius: 50%;
+  opacity: 0.48;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.work-project-orbit::before,
+.work-project-orbit span {
+  position: absolute;
+  inset: 14%;
+  border: 1px solid color-mix(in srgb, var(--project-accent) 34%, transparent);
+  border-radius: 50%;
+  content: "";
+}
+
+.work-project-orbit::before {
+  inset: 30%;
+}
+
+.work-project-orbit span {
+  inset: 0;
+  transform: rotate(-35deg) scaleY(0.38);
+}
+
+.work-project-orbit i {
+  position: absolute;
+  top: 20%;
+  right: 21%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--project-accent);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--project-accent) 75%, transparent);
+}
+
+@media (max-width: 620px) {
+  .work-projects {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .work-project-featured {
+    grid-column: auto;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    min-height: 390px;
+  }
+
+  .work-project-featured .work-project-top {
+    grid-column: auto;
+  }
+
+  .work-project-orbit {
+    top: auto;
+    right: 14px;
+    bottom: 10px;
+    width: 150px;
+    transform: none;
+  }
 }
 
 .project {

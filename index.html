@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Astro</title>
-  <meta name="description" content="Muhammad Raihan Surya is an IT student at Universitas Gadjah Mada who builds geospatial AI, web apps and developer tools." />
+  <meta name="description" content="Muhammad Zefania Priscila is a Psychology student at Universitas Gadjah Mada who builds geospatial AI, web apps and developer tools." />
   <meta name="theme-color" content="#ecf0f3" />
   <meta property="og:title" content="Astro" />
   <meta property="og:description" content="Geospatial AI, web apps and developer tools, built in Yogyakarta." />
@@ -14,7 +14,7 @@
   <meta property="og:image" content="https://astro.ai.id/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="The word RAIHAN standing on the ground under the sun, casting a long shadow." />
+  <meta property="og:image:alt" content="The word ZEFANIA standing on the ground under the sun, casting a long shadow." />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://astro.ai.id/" />
   <link rel="icon" href="./favicon.ico" sizes="32x32" />
@@ -43,7 +43,7 @@
   <a class="skip-link" href="#work">Skip to work</a>
 
   <header class="masthead" id="masthead">
-    <a class="masthead-pill masthead-name" href="#top"><span>Raihan<span class="masthead-surname"> Surya</span></span></a>
+    <a class="masthead-pill masthead-name" href="#top"><span>Zefania<span class="masthead-surname"> Priscila</span></span></a>
     <nav class="masthead-pill masthead-nav" aria-label="Sections">
       <span class="nav-glider" aria-hidden="true"></span>
       <a href="#work" data-nav="work">Work</a>
@@ -70,14 +70,14 @@
 
       <div class="monument" id="monument">
         <div class="monument-shadow" aria-hidden="true">
-          <div class="cast cast-soft" data-word>RAIHAN</div>
-          <div class="cast cast-core" data-word>RAIHAN</div>
+          <div class="cast cast-soft" data-word>ZEFANIA</div>
+          <div class="cast cast-core" data-word>ZEFANIA</div>
         </div>
-        <h1 class="monument-word" id="heroName" data-word aria-label="Raihan Surya">RAIHAN</h1>
+        <h1 class="monument-word" id="heroName" data-word aria-label="Zefania Priscila">ZEFANIA</h1>
       </div>
 
       <div class="hero-foot">
-        <p class="hero-intro">I'm an IT student at Universitas Gadjah Mada in Yogyakarta. I build geospatial AI, web apps and developer tools.</p>
+        <p class="hero-intro">I'm a Psychology student at Universitas Gadjah Mada in Yogyakarta. I build geospatial AI, web apps and developer tools.</p>
 
         <div class="dial" id="dial">
           <div class="dial-head">
@@ -108,182 +108,87 @@
     <section class="work" id="work" aria-labelledby="workTitle">
       <header class="section-head">
         <h2 class="section-title" id="workTitle" data-rise>Work</h2>
-        <p class="section-lede">Five projects, each with something to try. Open one for the full story.</p>
+        <p class="section-lede">A selection of projects exploring AI, connected systems, and real-world impact.</p>
       </header>
 
-      <!-- PetaSurya: rooftops under the same sun as the hero -->
-      <article class="project project-petasurya" id="petasurya" aria-labelledby="name-petasurya">
-        <div class="project-copy">
-          <h3 class="project-name" data-rise id="name-petasurya">PetaSurya</h3>
-          <p class="project-line">Solar potential for every rooftop in a city.</p>
-          <div class="project-actions">
-            <span class="status">Open source</span>
-            <a class="open-btn" data-magnet href="#/petasurya" data-open="petasurya">View details</a>
+      <div class="work-projects">
+        <article class="work-project work-project-featured" aria-labelledby="project-core-ai" style="--project-accent: #8b7cff">
+          <div class="work-project-top">
+            <span class="work-project-index">01 <i></i> 05</span>
+            <span class="work-project-mark" aria-hidden="true">AI</span>
           </div>
-        </div>
-        <div class="plate plate-city" data-plate="city">
-          <canvas class="plate-canvas" role="img" aria-label="A city block seen from above. Each roof casts a shadow from the current sun over Yogyakarta. Scanning a roof shows its solar potential."></canvas>
-          <div class="roof-tip" aria-live="polite" hidden>
-            <p class="roof-tip-area"></p>
-            <p class="roof-tip-yield"></p>
+          <div class="work-project-copy">
+            <p class="work-project-kicker">AI · COGNITIVE TOOLS</p>
+            <h3 class="work-project-name" id="project-core-ai" data-rise>CORE AI</h3>
+            <p class="work-project-description">A structured-prompting browser extension that guides generative AI toward active cognitive engagement.</p>
+            <a class="work-project-link" href="https://core-ai-livid.vercel.app" target="_blank" rel="noopener noreferrer" data-magnet>
+              Explore CORE AI <span aria-hidden="true">↗</span>
+            </a>
           </div>
-          <p class="plate-chip plate-chip-sun">Shadows follow the sun above</p>
-          <div class="plate-bar">
-            <p class="plate-hint" data-hover="Point at a roof to scan it." data-touch="Tap a roof to scan it.">Point at a roof to scan it.</p>
-            <button type="button" class="plate-btn" data-action="scan">Scan a roof</button>
-          </div>
-        </div>
-      </article>
+          <div class="work-project-orbit" aria-hidden="true"><span></span><i></i></div>
+        </article>
 
-      <!-- PRAKIRA: rain now, risk later -->
-      <article class="project project-prakira" id="prakira" aria-labelledby="name-prakira">
-        <div class="project-copy">
-          <h3 class="project-name" data-rise id="name-prakira">PRAKIRA</h3>
-          <p class="project-line">Early warnings for disease outbreaks, read from the weather.</p>
-          <div class="project-actions">
-            <span class="status status-live">Live</span>
-            <a class="open-btn" data-magnet href="#/prakira" data-open="prakira">View details</a>
+        <article class="work-project" aria-labelledby="project-nexus" style="--project-accent: #4bb8d1">
+          <div class="work-project-top">
+            <span class="work-project-index">02 <i></i> 05</span>
+            <span class="work-project-mark" aria-hidden="true">NX</span>
           </div>
-        </div>
-        <div class="plate plate-rain" data-plate="rain">
-          <canvas class="plate-canvas" role="img" aria-label="An abstract map of sixteen districts by the sea. Rain over a district raises its outbreak risk a little later."></canvas>
-          <ul class="risk-legend" aria-label="Districts by risk level">
-            <li><i class="risk-dot risk-low"></i>Low <b data-count="low">9</b></li>
-            <li><i class="risk-dot risk-watch"></i>Watch <b data-count="watch">4</b></li>
-            <li><i class="risk-dot risk-alert"></i>Alert <b data-count="alert">3</b></li>
-          </ul>
-          <div class="plate-bar">
-            <p class="plate-hint" data-hover="Move the cloud to make it rain. Risk follows later." data-touch="Tap or drag to make it rain. Risk follows later.">Move the cloud to make it rain. Risk follows later.</p>
-            <button type="button" class="plate-btn" data-action="rain">Make it rain</button>
+          <div class="work-project-copy">
+            <p class="work-project-kicker">INDUSTRIAL · CONTROL ROOM</p>
+            <h3 class="work-project-name" id="project-nexus" data-rise>NEXUS</h3>
+            <p class="work-project-description">An interactive control-room concept for exploring smelter emissions monitoring and connected industrial operations.</p>
           </div>
-        </div>
-      </article>
+          <div class="work-project-orbit" aria-hidden="true"><span></span><i></i></div>
+        </article>
 
-      <!-- PanenCerdas: grow a season -->
-      <article class="project project-panen" id="panencerdas" aria-labelledby="name-panen">
-        <div class="project-copy">
-          <h3 class="project-name" data-rise id="name-panen">PanenCerdas</h3>
-          <p class="project-line">Harvest forecasts from satellites, made before the harvest.</p>
-          <div class="project-actions">
-            <span class="status status-live">Live</span>
-            <a class="open-btn" data-magnet href="#/panencerdas" data-open="panencerdas">View details</a>
+        <article class="work-project" aria-labelledby="project-cypher" style="--project-accent: #43c6a0">
+          <div class="work-project-top">
+            <span class="work-project-index">03 <i></i> 05</span>
+            <span class="work-project-mark" aria-hidden="true">CY</span>
           </div>
-        </div>
-        <div class="plate plate-field" data-plate="field">
-          <canvas class="plate-canvas" role="img" aria-label="Rice fields seen from above as satellite pixels, turning from water to green to gold across one growing season."></canvas>
-          <div class="season-readout">
-            <p class="season-day">Day <b class="season-day-num">0</b></p>
-            <p class="season-yield">Planting</p>
+          <div class="work-project-copy">
+            <p class="work-project-kicker">IOT · DECARBONIZATION</p>
+            <h3 class="work-project-name" id="project-cypher" data-rise>CYPHER</h3>
+            <p class="work-project-description">An IoT-based emissions-control concept for nickel smelters, connecting thermal energy recovery, gas filtration, and monitoring.</p>
           </div>
-          <div class="plate-bar plate-bar-season">
-            <p class="plate-hint" data-hover="Move across the fields to run the season." data-touch="Drag across the fields to run the season.">Move across the fields to run the season.</p>
-            <label class="season-label">
-              <span class="visually-hidden">Day of the growing season</span>
-              <canvas class="season-band" aria-hidden="true"></canvas>
-              <input type="range" class="season-range" min="0" max="120" step="1" value="0" />
-            </label>
-          </div>
-        </div>
-      </article>
+          <div class="work-project-orbit" aria-hidden="true"><span></span><i></i></div>
+        </article>
 
-      <!-- Figlo: tags on a Figma layer become behavior in Roblox -->
-      <article class="project project-figlo" id="figlo" aria-labelledby="name-figlo">
-        <div class="project-copy">
-          <h3 class="project-name" data-rise id="name-figlo">Figlo</h3>
-          <p class="project-line">Figma designs become working Roblox UI.</p>
-          <div class="project-actions">
-            <span class="status">Alpha</span>
-            <a class="open-btn" data-magnet href="#/figlo" data-open="figlo">View details</a>
+        <article class="work-project" aria-labelledby="project-growth" style="--project-accent: #e5a75a">
+          <div class="work-project-top">
+            <span class="work-project-index">04 <i></i> 05</span>
+            <span class="work-project-mark" aria-hidden="true">GR</span>
           </div>
-        </div>
-        <div class="plate plate-figlo" data-plate="figlo">
-          <div class="figlo-pane figlo-figma">
-            <p class="figlo-label">Figma</p>
-            <ul class="figlo-layers" aria-label="Layers">
-              <li class="layer layer-frame"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 1v10M8.5 1v10M1 3.5h10M1 8.5h10" /></svg>Shop_frame</li>
-              <li class="layer">Title_sheen</li>
-              <li class="layer">Coin_float</li>
-              <li class="layer is-selected"><span class="figlo-layer-name">Buy_button_smooth</span></li>
-              <li class="layer">Close_button</li>
-            </ul>
-            <div class="figlo-tags" role="group" aria-label="Tags on the Buy layer">
-              <button type="button" class="figlo-tag" data-tag="_button" aria-pressed="true">_button</button>
-              <button type="button" class="figlo-tag" data-tag="_smooth" aria-pressed="true">_smooth</button>
-              <button type="button" class="figlo-tag" data-tag="_float" aria-pressed="false">_float</button>
-              <button type="button" class="figlo-tag" data-tag="_pulse" aria-pressed="false">_pulse</button>
-              <button type="button" class="figlo-tag" data-tag="_wobble" aria-pressed="false">_wobble</button>
-              <button type="button" class="figlo-tag" data-tag="_sheen" aria-pressed="false">_sheen</button>
-            </div>
+          <div class="work-project-copy">
+            <p class="work-project-kicker">PROJECT</p>
+            <h3 class="work-project-name" id="project-growth" data-rise>GROWTH</h3>
+            <p class="work-project-description">An integrated self-development app designed for emerging adults.</p>
+            <a class="work-project-link" href="https://growth-ai-prototype.vercel.app" target="_blank" rel="noopener noreferrer" data-magnet>
+              Explore GROWTH <span aria-hidden="true">↗</span>
+            </a>
           </div>
-          <div class="figlo-wire" aria-hidden="true"><span class="figlo-packet"></span></div>
-          <div class="figlo-pane figlo-game">
-            <p class="figlo-label">Roblox Studio</p>
-            <div class="game">
-              <p class="game-title">SHOP</p>
-              <span class="game-coin" aria-hidden="true">$</span>
-              <div class="game-tiles" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-              <div class="game-buy-wrap">
-                <button type="button" class="game-buy is-button is-smooth">
-                  <span class="buy-coin" aria-hidden="true">$</span>
-                  <span class="buy-text">BUY · 500</span>
-                  <span class="buy-sheen" aria-hidden="true"></span>
-                </button>
-              </div>
-              <p class="game-toast" aria-live="polite"></p>
-            </div>
-          </div>
-          <div class="plate-bar plate-bar-figlo">
-            <p class="plate-hint" data-hover="Toggle tags on the layer, then try the button." data-touch="Toggle tags on the layer, then try the button.">Toggle tags on the layer, then try the button.</p>
-          </div>
-        </div>
-      </article>
+          <div class="work-project-orbit" aria-hidden="true"><span></span><i></i></div>
+        </article>
 
-      <!-- agent-council: four roles, one ruling -->
-      <article class="project project-council" id="agent-council" aria-labelledby="name-council">
-        <div class="project-copy">
-          <h3 class="project-name" data-rise id="name-council">agent-council</h3>
-          <p class="project-line">Four AI roles argue. One ruling you can test.</p>
-          <div class="project-actions">
-            <span class="status">Open source</span>
-            <a class="open-btn" data-magnet href="#/agent-council" data-open="agent-council">View details</a>
+        <article class="work-project" aria-labelledby="project-vertex" style="--project-accent: #7c9bff">
+          <div class="work-project-top">
+            <span class="work-project-index">05 <i></i> 05</span>
+            <span class="work-project-mark" aria-hidden="true">VX</span>
           </div>
-        </div>
-        <div class="plate plate-council" data-plate="council">
-          <div class="council-stage">
-            <svg class="council-table" viewBox="0 0 400 400" aria-hidden="true">
-              <circle class="table-ring" cx="200" cy="200" r="104" />
-              <circle class="table-ring table-ring-inner" cx="200" cy="200" r="86" />
-              <path class="council-arc" data-arc="0" d="M70 200 Q200 150 200 70" style="--arc: #3fb950" />
-              <path class="council-arc" data-arc="1" d="M200 70 Q250 200 330 200" style="--arc: #f85149" />
-              <path class="council-arc" data-arc="2" d="M330 200 Q200 250 70 200" style="--arc: #58a6ff" />
-              <circle class="confidence-track" cx="200" cy="200" r="66" />
-              <circle class="confidence-fill" cx="200" cy="200" r="66" />
-            </svg>
-            <button type="button" class="seat" data-role="believer" style="--role: #3fb950; --x: 17.5%; --y: 50%"><span class="seat-ring"></span><span class="seat-name">Believer</span></button>
-            <button type="button" class="seat" data-role="skeptic" style="--role: #f85149; --x: 50%; --y: 17.5%"><span class="seat-ring"></span><span class="seat-name">Skeptic</span></button>
-            <button type="button" class="seat" data-role="investor" style="--role: #58a6ff; --x: 82.5%; --y: 50%"><span class="seat-ring"></span><span class="seat-name">Investor</span></button>
-            <button type="button" class="seat" data-role="judge" style="--role: #e3b341; --x: 50%; --y: 82.5%"><span class="seat-ring"></span><span class="seat-name">Judge</span></button>
-            <div class="council-center">
-              <p class="council-question">Should I build agent-council?</p>
-              <p class="council-verdict" hidden>Proceed, with conditions</p>
-              <p class="council-confidence" hidden>50% sure</p>
-            </div>
+          <div class="work-project-copy">
+            <p class="work-project-kicker">RESEARCH · EMISSIONS</p>
+            <h3 class="work-project-name" id="project-vertex" data-rise>VERTEX</h3>
+            <p class="work-project-description">A research concept exploring IoT-enabled emissions control and decarbonization for nickel smelting.</p>
           </div>
-          <div class="council-caption" aria-live="polite">
-            <p class="caption-who">The council</p>
-            <p class="caption-text">Tap a seat to hear one role, or convene all four.</p>
-          </div>
-          <div class="plate-bar plate-bar-council">
-            <button type="button" class="plate-btn" data-action="convene">Convene</button>
-          </div>
-        </div>
-      </article>
+          <div class="work-project-orbit" aria-hidden="true"><span></span><i></i></div>
+        </article>
+      </div>
     </section>
 
     <section class="about" id="about" aria-labelledby="aboutTitle">
       <h2 class="section-title" id="aboutTitle" data-rise>About</h2>
       <div class="about-body">
-        <p class="about-lead">I'm Raihan, an Information Technology student at Universitas Gadjah Mada in Yogyakarta, Indonesia.</p>
+        <p class="about-lead">I'm Zefania, an Psychology Student at Universitas Gadjah Mada in Yogyakarta, Indonesia.</p>
         <p class="about-text">I like problems that start as messy real-world data, like satellite pixels, weather records and case counts, and end as something a person can act on.</p>
         <p class="about-aside">Surya means sun. That's why this page has a sky.</p>
       </div>
@@ -387,7 +292,7 @@
   </main>
 
   <footer class="footer">
-    <p>Muhammad Raihan Surya, 2026</p>
+    <p>Muhammad Zefania Priscila, 2026</p>
     <p>Sky calculated for Yogyakarta, 7.80° S, 110.37° E.</p>
   </footer>
 

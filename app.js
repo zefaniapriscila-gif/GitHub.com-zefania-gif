@@ -505,9 +505,8 @@
     // The name stands just above the text at the foot of the hero.
     const footTop = hero.foot.offsetTop;
     hero.baseY = Math.min(h * (small ? 0.64 : 0.705), footTop - (small ? 60 : 56));
-    hero.el.style.setProperty("--veil", `${Math.max(24, Math.round(footTop - hero.baseY - 4))}px`);
 
-    // Fit the name to the width, then stand its baseline on the ground line.
+    // Fit the name to the available width, then center it in the visible hero area.
     const mon = hero.monument;
     mon.style.setProperty("--word-size", "100px");
     const range = document.createRange();
@@ -515,9 +514,11 @@
     const natural = range.getBoundingClientRect().width || 300;
     const capRatio = measureCapRatio();
     let size = ((mon.clientWidth * 0.995) / natural) * 100;
-    size = Math.min(size, (hero.baseY - (small ? 130 : 150)) / capRatio);
+    size = Math.min(size, (hero.baseY - (small ? 130 : 150)) / capRatio) * 0.5;
     mon.style.setProperty("--word-size", `${size.toFixed(2)}px`);
     hero.cap = capRatio * size;
+    hero.baseY = Math.min(h, window.innerHeight) / 2 + hero.cap / 2;
+    hero.el.style.setProperty("--veil", `${Math.max(24, Math.round(footTop - hero.baseY - 4))}px`);
 
     // The horizon crosses the letters a little over a third of the way up.
     hero.horizonY = hero.baseY - Math.max(28, hero.cap * 0.37);
@@ -2321,216 +2322,7 @@
   // ==========================================================================
   // 7. PROJECT DETAILS
   // ==========================================================================
-  const PROJECTS = [
-    {
-      slug: "petasurya",
-      name: "PetaSurya",
-      icon: "./assets/projects/petasurya-mascot.webp",
-      summary: "Rooftop solar potential for every building in Kota Bengkulu, with the math shown.",
-      facts: [["Year", "2026"], ["Focus", "Geospatial AI and solar physics"], ["Status", "Open source"]],
-      links: [{ label: "View source", href: "https://github.com/astrorehan/PetaSurya", kind: "github", primary: true }],
-      lead: {
-        src: "./assets/projects/petasurya-analysis.png",
-        alt: "PetaSurya result page for a minimarket roof in Kota Bengkulu",
-        caption: "A result page: the roof mask on the map, how sure the analysis is, and the numbers that follow from it.",
-        ratio: "16 / 10",
-      },
-      about: [
-        "PetaSurya, roughly “sun map”, estimates how much solar power each rooftop in Kota Bengkulu could produce and what it would save. It starts from 120,975 OpenStreetMap building footprints, finds the usable part of each roof in satellite imagery, and turns that into capacity, yearly energy, savings and avoided emissions.",
-        "Its tagline is “Atapmu, dihitung”: your roof, calculated. Every figure on a result page links to the formula and the source behind it, so a homeowner or a city planner can check the work instead of taking it on trust.",
-      ],
-      numbers: [
-        ["120,975", "OpenStreetMap building footprints mapped"],
-        ["14.3 kWp", "Capacity of one 245 m² minimarket roof"],
-        ["Rp 12.1M", "What that roof would save each year"],
-        ["17.1 years", "Payback time for the same roof"],
-      ],
-      steps: [
-        ["Footprints", "Building outlines come from OpenStreetMap, so every roof has a real, citable source."],
-        ["Roof segmentation", "MobileSAM, running in ONNX, masks the usable roof on Esri World Imagery and removes objects such as water tanks."],
-        ["Solar physics", "The Hay-Davies transposition model and the NOCT cell-temperature model turn local sunlight into monthly energy."],
-        ["Economics", "PLN tariffs under Permen ESDM 7/2024 give yearly savings, payback time and avoided CO₂."],
-      ],
-      lab: "solar",
-      shots: [
-        { src: "./assets/projects/petasurya-map.png", alt: "Map of Kota Bengkulu with three outlined buildings", caption: "Pick a building. Each amber outline is a real OpenStreetMap footprint." },
-        { src: "./assets/projects/petasurya-city.png", alt: "City mode with district boundaries in Kota Bengkulu", caption: "City mode groups roofs by district." },
-      ],
-      stack: ["Next.js", "React", "TypeScript", "MapLibre GL", "FastAPI", "Python", "ONNX Runtime", "MobileSAM", "OpenStreetMap"],
-    },
-    {
-      slug: "prakira",
-      name: "PRAKIRA",
-      icon: "./assets/projects/prakira-icon.svg",
-      summary: "Early warning for disease outbreaks in Semarang's 16 districts, two to four weeks ahead.",
-      facts: [["Year", "2026"], ["Built for", "DSDC ANFORCOM 2026"], ["Status", "Live"]],
-      links: [
-        { label: "Visit live site", href: "https://ai-prakira.vercel.app", kind: "live", primary: true },
-        { label: "View source", href: "https://github.com/astrorehan/prakira", kind: "github" },
-      ],
-      lead: {
-        src: "./assets/projects/prakira-hero.png",
-        alt: "PRAKIRA public page asking whether your area is safe next month",
-        caption: "The public page answers one question: is my area safe next month?",
-        ratio: "16 / 10",
-      },
-      about: [
-        "Dengue, respiratory infections and leptospirosis follow the weather, but with a delay. PRAKIRA learns that delay from 60 months of surveillance and climate records, then forecasts risk for each of Semarang's 16 kecamatan two to four weeks before cases rise.",
-        "It has two faces. Residents get a public page, with no login, that tells them whether their area is safe next month. Health officers at Dinas Kesehatan and the Puskesmas get a console that ranks districts, shows what drives each risk and suggests the next action, such as focused fogging within 200 metres.",
-      ],
-      numbers: [
-        ["16", "Kecamatan forecast across Kota Semarang"],
-        ["60 months", "Of case and climate history behind the models"],
-        ["2–4 weeks", "Of warning before cases rise"],
-      ],
-      steps: [
-        ["Climate lag", "Rainfall, temperature and humidity are lined up with case counts at several time lags."],
-        ["Forecast", "XGBoost models, served through FastAPI, score every district for each disease."],
-        ["Rules", "An Express service turns scores into alert levels and recommended actions."],
-        ["Dispatch", "The console ranks districts and drafts bulletins for Puskesmas teams."],
-      ],
-      lab: "disease",
-      shots: [
-        { src: "./assets/projects/prakira-console.png", alt: "Officer console with a risk map of Semarang", caption: "The officer console ranks districts and suggests what to do first." },
-        { src: "./assets/projects/prakira-risk.png", alt: "District result with risk scores by disease", caption: "A district result: risk by disease, expected cases and what residents can do." },
-      ],
-      stack: ["Next.js 15", "TypeScript", "Express", "FastAPI", "Python", "XGBoost", "PostgreSQL", "Supabase", "Leaflet"],
-    },
-    {
-      slug: "panencerdas",
-      name: "PanenCerdas",
-      icon: "./assets/projects/panencerdas-icon.svg",
-      summary: "Harvest forecasts from satellite and weather data, for farmers and for the people who plan food supply.",
-      facts: [["Year", "2026"], ["Built for", "UNITY #14, UNY 2026"], ["Status", "Live"]],
-      links: [
-        { label: "Visit live site", href: "https://panen-cerdas.vercel.app/tentang", kind: "live", primary: true },
-        { label: "View source", href: "https://github.com/astrorehan/panen-cerdas", kind: "github" },
-      ],
-      lead: {
-        src: "./assets/projects/panencerdas-dashboard.png",
-        alt: "PanenCerdas government dashboard for rice in DI Yogyakarta",
-        caption: "The government dashboard for rice in DI Yogyakarta: production, yield, vegetation and food balance.",
-        ratio: "16 / 10",
-      },
-      about: [
-        "Indonesia often learns about a harvest surplus or shortfall months after it happens, from figures collected by hand. PanenCerdas, “smart harvest”, estimates the harvest before it happens, using satellite imagery that is already free.",
-        "Farmers describe a plot and get a predicted harvest date, yield per hectare and suggested actions. Agencies get a regional dashboard that covers 514 regencies and cities, nine staple crops and the food balance of each area.",
-      ],
-      numbers: [
-        ["514", "Regencies and cities covered"],
-        ["9", "Staple crops, from rice to shallots"],
-        ["250 m", "Size of one MODIS satellite pixel"],
-        ["10", "Farmer reports between automatic retrains"],
-      ],
-      steps: [
-        ["Vegetation", "MODIS MOD13Q1 NDVI at 250 m, through NASA AppEEARS, tracks how green each area is."],
-        ["Weather", "NASA POWER adds daily rainfall, temperature and solar radiation."],
-        ["Models", "Three RandomForest models predict harvest timing, yield and production."],
-        ["Feedback", "Every ten harvest reports from farmers trigger a retrain."],
-      ],
-      lab: "harvest",
-      shots: [
-        { src: "./assets/projects/panencerdas-prediksi.png", alt: "Farmer prediction form with nine crop choices", caption: "Farmers pick one of nine crops and describe the plot." },
-        { src: "./assets/projects/panencerdas-hero.png", alt: "PanenCerdas manifesto page", caption: "Why it exists: three gaps in how food data is collected." },
-      ],
-      stack: ["Next.js 14", "TypeScript", "FastAPI", "Python", "scikit-learn", "Supabase", "NASA POWER", "MODIS"],
-    },
-    {
-      slug: "figlo",
-      name: "Figlo",
-      icon: "./assets/projects/figlo-icon.svg",
-      summary: "Moves Figma frames into Roblox Studio as editable UI, with behavior written into layer names.",
-      facts: [["Year", "2026"], ["Version", "0.1.0 alpha"], ["Status", "Alpha"]],
-      links: [
-        { label: "Download the alpha", href: "https://github.com/astrorehan/figlo/releases", kind: "live", primary: true },
-        { label: "View source", href: "https://github.com/astrorehan/figlo", kind: "github" },
-      ],
-      lead: {
-        src: "./assets/projects/figlo-studio-preview.png",
-        alt: "Figlo preview of a shop screen with a yellow buy button",
-        caption: "The tag guide previews a shop screen, hover and press included, before it is exported.",
-        ratio: "1080 / 760",
-      },
-      about: [
-        "Designing game UI in Figma is pleasant. Rebuilding it by hand in Roblox Studio is not. Figlo moves a frame across in one step and keeps it editable: text stays as TextLabels, shapes become native Frames with UICorner and UIStroke, and complex images are uploaded for you.",
-        "Behavior comes from layer names. Add a tag such as _button, _float or _goto to a layer in Figma, and Figlo's Luau runtime makes it react in the game. Everything passes through a relay on your own machine, so designs are never sent anywhere else.",
-      ],
-      steps: [
-        ["Export", "The Figma plugin reads the frame and its layer tree."],
-        ["Relay", "A local Bun server hands the frame to Studio."],
-        ["Build", "The Studio plugin rebuilds the hierarchy under StarterGui as native objects."],
-        ["Run", "Luau scripts read the tags and add hover, press, motion and navigation."],
-      ],
-      tags: ["_button", "_smooth", "_when", "_nodim", "_goto", "_show", "_hide", "_switch", "_spin", "_rays", "_pulse", "_float", "_sway", "_wobble", "_blink", "_wiggle", "_jitter", "_halo", "_tide", "_drift", "_lift", "_tip", "_pull", "_sheen"],
-      shots: [
-        { src: "./assets/projects/figlo-figma-canvas.jpg", alt: "A game inventory frame open in Figma", caption: "The source frame in Figma, with tagged layers." },
-        { src: "./assets/projects/figlo-tag-guide.png", alt: "Figlo plugin panel listing layer tags", caption: "The plugin's tag guide, with a live preview of each effect.", fit: "contain" },
-      ],
-      stack: ["TypeScript", "Luau", "Bun", "Figma Plugin API", "Roblox Studio"],
-    },
-    {
-      slug: "agent-council",
-      name: "agent-council",
-      icon: "./assets/projects/agent-council-icon.svg",
-      summary: "A decision skill for AI agents. Four roles argue, a judge rules, and the ruling comes with a test that could prove it wrong.",
-      facts: [["Year", "2026"], ["Type", "Agent Skill"], ["Status", "Open source"]],
-      links: [{ label: "View source", href: "https://github.com/astrorehan/agent-council", kind: "github", primary: true }],
-      lead: {
-        src: "./assets/projects/agent-council-banner.png",
-        alt: "Four neon figures around a table above the name agent-council",
-        caption: "Believer, Skeptic, Investor and Judge.",
-        ratio: "3 / 1",
-      },
-      about: [
-        "Ask one model for advice and it tends to agree with you. agent-council splits the question across four roles: the Believer argues for it, the Skeptic against it, the Investor weighs the cost, and the Judge rules.",
-        "The first round runs blind, so no role can echo another. In the second round each role quotes the others word for word before answering. Every claim is tagged as fact, assumption or speculation, so a guess cannot outrank evidence. The ruling states a confidence level, what must be true, and the cheapest test that would prove it wrong.",
-      ],
-      numbers: [
-        ["4", "Roles, each with its own job"],
-        ["2", "Rounds, the first one blind"],
-        ["45+", "Agent clients that can run it"],
-        ["1", "File to install, with no dependencies"],
-      ],
-      steps: [
-        ["Intake", "The council reads the question and the context around it."],
-        ["Blind round", "Believer, Skeptic and Investor argue without seeing each other."],
-        ["Rebuttal", "Each role answers the others, quoting them exactly."],
-        ["Ruling", "The Judge rules, sets a confidence level and names the cheapest test that could falsify it."],
-      ],
-      lab: "council",
-      shots: [
-        { src: "./assets/projects/agent-council-diagram.svg", alt: "agent-council card with the four roles", caption: "When the council rules on itself, its confidence is capped at 50%.", fit: "contain" },
-      ],
-      stack: ["Agent Skills (SKILL.md)", "Claude Code", "Codex CLI", "Gemini CLI"],
-    },
-  ];
-
-  const LABS = {
-    disease: {
-      label: "Disease",
-      options: [["dbd", "Dengue"], ["ispa", "Respiratory"], ["lepto", "Leptospirosis"]],
-      keys: [["zones", "Districts flagged"], ["top", "Highest risk"], ["lead", "Lead time"], ["action", "Suggested action"]],
-      data: {
-        dbd: { zones: "3 alert, 4 watch", top: "Tembalang, 86/100", lead: "2–4 weeks", action: "Focused fogging within 200 m" },
-        ispa: { zones: "2 alert, 6 watch", top: "Pedurungan, 79/100", lead: "1–2 weeks", action: "2,000 masks and closer watch" },
-        lepto: { zones: "2 alert, 3 watch", top: "Genuk, 82/100", lead: "2–3 weeks", action: "Prophylaxis and flood sanitation" },
-      },
-      note: "A sample forecast from the officer console.",
-      accent: "#0b4a57",
-    },
-    harvest: {
-      label: "Crop",
-      options: [["padi", "Rice"], ["jagung", "Corn"], ["cabai", "Bird's eye chili"]],
-      keys: [["yield", "Predicted yield"], ["days", "Days to harvest"], ["ndvi", "Vegetation index"], ["balance", "Regional balance"]],
-      data: {
-        padi: { yield: "5.84 t/ha", days: "108 days", ndvi: "0.74 NDVI", balance: "Surplus, +18.2%" },
-        jagung: { yield: "6.42 t/ha", days: "96 days", ndvi: "0.69 NDVI", balance: "Surplus, +11.5%" },
-        cabai: { yield: "8.15 t/ha", days: "82 days", ndvi: "0.61 NDVI", balance: "Watch: rain anomaly" },
-      },
-      note: "A sample forecast for DI Yogyakarta.",
-      accent: "#1f5132",
-    },
-  };
+  const PROJECTS = [];
 
   const COUNCIL_CLAIMS = {
     believer: [
