@@ -3898,15 +3898,6 @@ html.is-locked main {
   pointer-events: none;
 }
 
-.hero-bee {
-  top: clamp(88px, 11vh, 112px);
-  left: clamp(14px, 2vw, 30px);
-  width: clamp(44px, 6vw, 72px);
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: bee-drift 3.8s ease-in-out infinite;
-}
-
 .hero-rocket {
   top: clamp(120px, 15vh, 154px);
   right: clamp(12px, 2vw, 30px);
@@ -3916,17 +3907,7 @@ html.is-locked main {
   animation: rocket-ready 4.5s ease-in-out infinite;
 }
 
-@keyframes bee-drift {
-  0%,
-  100% {
-    translate: 0 0;
-    rotate: -2deg;
-  }
-  50% {
-    translate: -5px -8px;
-    rotate: 2deg;
-  }
-}
+
 
 .hero-flame {
   transform-box: fill-box;
