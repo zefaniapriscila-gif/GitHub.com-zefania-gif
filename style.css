@@ -3900,23 +3900,16 @@ html.is-locked main {
 
 .hero-bee {
   top: clamp(88px, 11vh, 112px);
-  left: calc(50% - clamp(125px, 32vw, 390px));
+  left: clamp(14px, 2vw, 30px);
   width: clamp(44px, 6vw, 72px);
   transform-box: fill-box;
   transform-origin: center;
   animation: bee-drift 3.8s ease-in-out infinite;
 }
 
-.hero-rainbow {
-  top: clamp(154px, 19vh, 178px);
-  left: calc(50% - clamp(176px, 40vw, 430px));
-  width: clamp(52px, 7vw, 88px);
-  transform: rotate(-18deg);
-}
-
 .hero-rocket {
   top: clamp(120px, 15vh, 154px);
-  left: calc(50% + clamp(105px, 27vw, 350px));
+  right: clamp(12px, 2vw, 30px);
   width: clamp(48px, 7.5vw, 92px);
   transform-box: fill-box;
   transform-origin: center;
