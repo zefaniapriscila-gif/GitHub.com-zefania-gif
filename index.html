@@ -68,6 +68,38 @@
       </div>
       <div class="ground" aria-hidden="true"><div class="ground-grid"></div></div>
 
+      <div class="hero-elephant" aria-hidden="true">
+        <svg viewBox="0 0 900 520" role="presentation" focusable="false">
+          <defs>
+            <filter id="elephant-pencil" x="-8%" y="-8%" width="116%" height="116%">
+              <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="8" />
+              <feDisplacementMap in="SourceGraphic" scale="2.4" />
+            </filter>
+            <pattern id="elephant-crayon" width="19" height="19" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+              <path d="M2 1v17M10 0v11M16 5v14" stroke="#e2f1ff" stroke-opacity=".19" stroke-width="2" />
+            </pattern>
+          </defs>
+          <g filter="url(#elephant-pencil)" stroke="#4b80c4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M251 345C139 388 46 368 26 287 5 203 71 130 168 142c46 6 83 32 109 75Z" fill="#75a9e2" stroke-width="5" />
+            <path d="M648 342c111 48 205 22 224-61 18-83-48-154-146-141-47 6-83 31-109 75Z" fill="#75a9e2" stroke-width="5" />
+            <path d="M249 345c-34-48-28-134 4-174 39-50 105-78 201-78 104 0 175 32 210 86 26 39 34 114 2 166-36 58-116 75-211 75-100 0-173-15-206-75Z" fill="#82b5e8" stroke-width="5" />
+            <path d="M249 345c-34-48-28-134 4-174 39-50 105-78 201-78 104 0 175 32 210 86 26 39 34 114 2 166-36 58-116 75-211 75-100 0-173-15-206-75Z" fill="url(#elephant-crayon)" stroke="none" />
+            <path d="M312 286c-3 50 6 82 28 83 22 2 36-13 41-36M579 286c3 50-6 82-28 83-22 2-36-13-41-36" fill="#86b9e9" stroke-width="4" />
+            <path d="M438 245c-8 79 5 143 49 190 23 24 55 28 77 17 18-9 19-24 4-34l-20-13c-11-8-5-19 8-22 12-4 16-16 8-26-8-10-24-9-34 0-19 16-43 8-55-15-14-27-16-59-11-96" fill="#78a9df" stroke-width="5" />
+            <path d="M438 245c-8 79 5 143 49 190 23 24 55 28 77 17 18-9 19-24 4-34l-20-13c-11-8-5-19 8-22 12-4 16-16 8-26-8-10-24-9-34 0-19 16-43 8-55-15-14-27-16-59-11-96" fill="url(#elephant-crayon)" stroke="none" />
+          </g>
+          <path d="M0 367h900" fill="none" stroke="#e5dccb" stroke-width="4" />
+          <path d="M160 300c-31 2-47 20-49 39-2 17 15 30 42 29 26-1 48-15 47-34-1-22-17-36-40-34ZM740 300c31 2 47 20 49 39 2 17-15 30-42 29-26-1-48-15-47-34 1-22 17-36 40-34Z" fill="#8ab9e6" stroke="#4b80c4" stroke-width="3" />
+          <path d="M142 359v9m16-8v9m16-11v9m568 1v9m16-8v9m16-11v9" stroke="#36485b" stroke-width="4" stroke-linecap="round" />
+          <circle cx="316" cy="227" r="21" fill="#fffaf0" />
+          <circle cx="584" cy="220" r="21" fill="#fffaf0" />
+          <circle cx="321" cy="228" r="9" fill="#263342" />
+          <circle cx="580" cy="221" r="9" fill="#263342" />
+          <path d="M426 267c20-8 41-10 61-8m-56 20 42-2m-39 16 37 4m-31 13 33 9m-25 11 33 13" fill="none" stroke="#4d79af" stroke-width="3" stroke-linecap="round" opacity=".8" />
+          <path d="M394 89c-6-24-3-42 6-57m18 49c3-26 13-46 28-62m8 63c11-20 23-34 40-44m-15 54c13-10 25-15 38-18" fill="none" stroke="#303239" stroke-width="3" stroke-linecap="round" />
+        </svg>
+      </div>
+
       <div class="monument" id="monument">
         <div class="monument-shadow" aria-hidden="true">
           <div class="cast cast-soft" data-word>ZEFANIA</div>
