@@ -3890,10 +3890,37 @@ html.is-locked main {
   overflow: visible;
 }
 
+.hero-doodle {
+  position: absolute;
+  z-index: 4;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+}
+
 .hero-bee {
+  top: clamp(88px, 11vh, 112px);
+  left: calc(50% - clamp(125px, 32vw, 390px));
+  width: clamp(44px, 6vw, 72px);
   transform-box: fill-box;
   transform-origin: center;
   animation: bee-drift 3.8s ease-in-out infinite;
+}
+
+.hero-rainbow {
+  top: clamp(154px, 19vh, 178px);
+  left: calc(50% - clamp(176px, 40vw, 430px));
+  width: clamp(52px, 7vw, 88px);
+  transform: rotate(-18deg);
+}
+
+.hero-rocket {
+  top: clamp(120px, 15vh, 154px);
+  left: calc(50% + clamp(105px, 27vw, 350px));
+  width: clamp(48px, 7.5vw, 92px);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rocket-ready 4.5s ease-in-out infinite;
 }
 
 @keyframes bee-drift {
@@ -3906,12 +3933,6 @@ html.is-locked main {
     translate: -5px -8px;
     rotate: 2deg;
   }
-}
-
-.hero-rocket {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: rocket-ready 4.5s ease-in-out infinite;
 }
 
 .hero-flame {
@@ -3980,7 +4001,7 @@ html.is-locked main {
 }
 
 @media (min-width: 621px) and (max-width: 899px) {
-  .hero-launch {
-    translate: 0 98px;
+  .hero-rocket {
+    top: 108px;
   }
 }
