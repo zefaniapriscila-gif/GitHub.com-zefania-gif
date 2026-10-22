@@ -3902,6 +3902,7 @@ html.is-locked main {
   top: clamp(120px, 15vh, 154px);
   right: clamp(12px, 2vw, 30px);
   width: clamp(48px, 7.5vw, 92px);
+  transform: rotate(-25deg);
   transform-box: fill-box;
   transform-origin: center;
   animation: rocket-ready 4.5s ease-in-out infinite;
@@ -3950,13 +3951,7 @@ html.is-locked main {
 }
 
 .monument-shadow {
-  display: none;
-}
-
-.monument-word {
-  color: color-mix(in srgb, var(--ink) 78%, #5b8bc4);
-  filter: none;
-  text-shadow: 0 2px 0 color-mix(in srgb, var(--surface) 65%, transparent);
+  display: block;
 }
 
 @media (max-width: 620px) {
