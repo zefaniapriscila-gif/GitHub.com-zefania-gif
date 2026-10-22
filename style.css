@@ -3900,7 +3900,7 @@ html.is-locked main {
 
 .hero-rocket {
   top: clamp(120px, 15vh, 154px);
-  right: calc(clamp(12px, 2vw, 30px) - 1cm);
+  right: calc(clamp(12px, 2vw, 30px) + 1cm);
   width: clamp(48px, 7.5vw, 92px);
   transform: rotate(-25deg);
   transform-box: fill-box;
