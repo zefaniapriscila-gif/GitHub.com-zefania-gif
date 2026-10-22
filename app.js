@@ -376,7 +376,7 @@
   function applyTheme(L) {
     if (root.dataset.theme === L.theme) return;
     root.dataset.theme = L.theme;
-    if (metaTheme) metaTheme.setAttribute("content", L.theme === "day" ? "#ecf0f3" : "#0a1230");
+    if (metaTheme) metaTheme.setAttribute("content", L.theme === "day" ? "#f4f1e9" : "#111725");
   }
 
   // Cast shadows on the page. The page is read as the ground seen from above,
@@ -387,7 +387,7 @@
     let lx = 0;
     let ly = 0.35;
     let len = 0.35;
-    let color = L.theme === "day" ? [38, 36, 110] : [0, 2, 14];
+    let color = L.theme === "day" ? [77, 57, 43] : [0, 2, 14];
     let alpha = L.theme === "day" ? 0.14 : 0.42;
     if (src) {
       const cot = clamp(1 / Math.tan(Math.max(src.alt, 4 * RAD)), 0.04, 2.6);
@@ -396,7 +396,7 @@
       ly = -Math.cos(src.az) * cot * k;
       len = cot * k;
       if (src.kind === "sun") {
-        color = mixRgb([38, 36, 110], [92, 42, 96], L.golden);
+        color = mixRgb([77, 57, 43], [125, 63, 76], L.golden);
         alpha = 0.13 + 0.09 * src.strength + 0.05 * L.golden;
       } else {
         alpha = 0.42 + 0.18 * src.strength;

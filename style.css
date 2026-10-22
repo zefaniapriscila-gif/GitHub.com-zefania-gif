@@ -3,14 +3,14 @@
    Day and night themes are switched by app.js from the sun's elevation.
    ========================================================================== */
 
-@property --bg { syntax: "<color>"; inherits: true; initial-value: #ecf0f3; }
-@property --bg-2 { syntax: "<color>"; inherits: true; initial-value: #e2e7ec; }
-@property --surface { syntax: "<color>"; inherits: true; initial-value: #f7f9fa; }
-@property --ink { syntax: "<color>"; inherits: true; initial-value: #121a33; }
-@property --ink-2 { syntax: "<color>"; inherits: true; initial-value: #3e4766; }
-@property --ink-3 { syntax: "<color>"; inherits: true; initial-value: #5d6684; }
-@property --btn { syntax: "<color>"; inherits: true; initial-value: #121a33; }
-@property --btn-ink { syntax: "<color>"; inherits: true; initial-value: #f2f5fa; }
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #f4f1e9; }
+@property --bg-2 { syntax: "<color>"; inherits: true; initial-value: #e9e4d9; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: #fcfaf5; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: #20283b; }
+@property --ink-2 { syntax: "<color>"; inherits: true; initial-value: #515b6e; }
+@property --ink-3 { syntax: "<color>"; inherits: true; initial-value: #727b88; }
+@property --btn { syntax: "<color>"; inherits: true; initial-value: #20283b; }
+@property --btn-ink { syntax: "<color>"; inherits: true; initial-value: #fcfaf5; }
 @property --lx { syntax: "<number>"; inherits: true; initial-value: 0; }
 @property --ly { syntax: "<number>"; inherits: true; initial-value: 0.4; }
 @property --llen { syntax: "<number>"; inherits: true; initial-value: 0.4; }
@@ -28,8 +28,8 @@
   --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
 
   /* Direction and length of cast shadows on the page, set from the sun or moon. */
-  --cast-page: rgba(38, 36, 110, 0.2);
-  --cast-text: rgba(38, 36, 110, 0.16);
+  --cast-page: rgba(77, 57, 43, 0.16);
+  --cast-text: rgba(77, 57, 43, 0.14);
   --sun-shadow: calc(var(--lx) * 26px) calc(var(--ly) * 26px) calc(18px + var(--llen) * 9px) var(--cast-page);
 
   transition: --bg 0.9s ease, --bg-2 0.9s ease, --surface 0.9s ease, --ink 0.9s ease, --ink-2 0.9s ease,
@@ -40,42 +40,44 @@
 :root,
 [data-theme="day"] {
   color-scheme: light;
-  --bg: #ecf0f3;
-  --bg-2: #e2e7ec;
-  --surface: #f7f9fa;
-  --ink: #121a33;
-  --ink-2: #3e4766;
-  --ink-3: #5d6684;
-  --line: rgba(18, 26, 51, 0.13);
-  --accent-text: #8f5400;
-  --sun: #f5a300;
-  --btn: #121a33;
-  --btn-ink: #f2f5fa;
-  --focus: #121a33;
-  --contact: rgba(18, 26, 51, 0.1);
+  --bg: #f4f1e9;
+  --bg-2: #e9e4d9;
+  --surface: #fcfaf5;
+  --ink: #20283b;
+  --ink-2: #515b6e;
+  --ink-3: #727b88;
+  --line: rgba(32, 40, 59, 0.14);
+  --accent-text: #a64f36;
+  --sun: #e69a43;
+  --btn: #20283b;
+  --btn-ink: #fcfaf5;
+  --focus: #a64f36;
+  --contact: rgba(44, 39, 35, 0.09);
   --error: #b3261e;
-  --thumb: linear-gradient(180deg, #ffd27a, #f5a300);
-  --thumb-hover: linear-gradient(180deg, #ffc24d, #d98a00);
+  --thumb: linear-gradient(180deg, #ffc878, #e69a43);
+  --thumb-hover: linear-gradient(180deg, #f5b659, #c97831);
+  --selection: #f3d59f;
 }
 
 [data-theme="night"] {
   color-scheme: dark;
-  --bg: #0a1230;
-  --bg-2: #141f4a;
-  --surface: #0f1940;
-  --ink: #e9eefb;
-  --ink-2: #b9c2de;
-  --ink-3: #9099bb;
-  --line: rgba(233, 238, 251, 0.14);
-  --accent-text: #ffc24d;
-  --sun: #ffc24d;
-  --btn: #e9eefb;
-  --btn-ink: #0a1230;
-  --focus: #ffc24d;
-  --contact: rgba(0, 0, 0, 0.35);
-  --error: #ff8a80;
-  --thumb: linear-gradient(180deg, #f1f4ff, #aebbe8);
-  --thumb-hover: linear-gradient(180deg, #ffffff, #c9d3f5);
+  --bg: #111725;
+  --bg-2: #1a2335;
+  --surface: #192235;
+  --ink: #f3efe6;
+  --ink-2: #c3c7d0;
+  --ink-3: #929bab;
+  --line: rgba(235, 231, 220, 0.15);
+  --accent-text: #ffc27d;
+  --sun: #ffc27d;
+  --btn: #f3efe6;
+  --btn-ink: #171e2d;
+  --focus: #ffc27d;
+  --contact: rgba(0, 0, 0, 0.28);
+  --error: #ff9c8d;
+  --thumb: linear-gradient(180deg, #fff1d8, #ffc27d);
+  --thumb-hover: linear-gradient(180deg, #fff8ed, #ffd9a5);
+  --selection: #75583e;
 }
 
 /* ==========================================================================
@@ -98,7 +100,10 @@ html {
 
 body {
   margin: 0;
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse at 8% 42%, color-mix(in srgb, var(--sun) 4%, transparent), transparent 42%),
+    var(--bg);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--sans);
   font-size: 1.0625rem;
@@ -153,8 +158,8 @@ ol {
 }
 
 ::selection {
-  background: #ffc24d;
-  color: #121a33;
+  background: var(--selection);
+  color: var(--ink);
 }
 
 /* Scrollbars: a small sun riding a quiet track, the moon at night. */
@@ -264,6 +269,7 @@ ol {
   background: color-mix(in srgb, var(--bg) 70%, transparent);
   -webkit-backdrop-filter: blur(16px) saturate(1.3);
   backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--ink) 7%, transparent), inset 0 1px 0 color-mix(in srgb, var(--surface) 55%, transparent);
   color: var(--ink);
   white-space: nowrap;
   pointer-events: auto;
@@ -930,10 +936,10 @@ ol {
   overflow: hidden;
   padding: clamp(24px, 3.5vw, 42px);
   border: 1px solid color-mix(in srgb, var(--project-accent) 28%, var(--line));
-  border-radius: 30px;
+  border-radius: 26px;
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--project-accent) 12%, var(--bg)), var(--bg) 78%);
-  box-shadow: 0 20px 52px -38px color-mix(in srgb, var(--project-accent) 42%, transparent);
+    linear-gradient(145deg, color-mix(in srgb, var(--project-accent) 13%, var(--surface)), color-mix(in srgb, var(--surface) 88%, var(--bg)) 76%);
+  box-shadow: 0 22px 55px -40px color-mix(in srgb, var(--project-accent) 48%, transparent), inset 0 1px 0 color-mix(in srgb, var(--surface) 65%, transparent);
   transition: transform 220ms var(--ease-out), border-color 220ms ease, box-shadow 220ms ease;
 }
 
@@ -941,7 +947,9 @@ ol {
   position: absolute;
   z-index: 0;
   inset: 0;
-  background: radial-gradient(circle at 88% 22%, color-mix(in srgb, var(--project-accent) 20%, transparent), transparent 42%);
+  background:
+    radial-gradient(circle at 88% 22%, color-mix(in srgb, var(--project-accent) 23%, transparent), transparent 42%),
+    linear-gradient(135deg, transparent 48%, color-mix(in srgb, var(--project-accent) 3%, transparent));
   content: "";
   pointer-events: none;
 }
@@ -950,6 +958,11 @@ ol {
   transform: translateY(-5px);
   border-color: color-mix(in srgb, var(--project-accent) 58%, var(--line));
   box-shadow: 0 28px 60px -38px color-mix(in srgb, var(--project-accent) 55%, transparent);
+}
+
+.work-project:focus-within {
+  outline: 2px solid var(--project-accent);
+  outline-offset: 4px;
 }
 
 .work-project-top,
@@ -1083,7 +1096,7 @@ ol {
   aspect-ratio: 1;
   border: 1px solid color-mix(in srgb, var(--project-accent) 40%, transparent);
   border-radius: 50%;
-  opacity: 0.48;
+  opacity: 0.36;
   pointer-events: none;
   transform: translateY(-50%);
 }
@@ -1115,6 +1128,16 @@ ol {
   border-radius: 50%;
   background: var(--project-accent);
   box-shadow: 0 0 24px color-mix(in srgb, var(--project-accent) 75%, transparent);
+}
+
+[data-theme="night"] .work-project {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--project-accent) 15%, var(--surface)), color-mix(in srgb, var(--surface) 90%, var(--bg)) 78%);
+  box-shadow: 0 24px 58px -40px color-mix(in srgb, var(--project-accent) 42%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+[data-theme="day"] .work-project {
+  box-shadow: 0 22px 48px -38px color-mix(in srgb, var(--project-accent) 36%, #6d5640), inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
 @media (max-width: 620px) {
